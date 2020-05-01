@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')))
 
 let key = process.env.MAILCHIMP_KEY
-let url = process.env.MALCHIMP_URL
+let url = process.env.MAILCHIMP_URL
 
 
 
