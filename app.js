@@ -2,6 +2,7 @@ const express = require('express');
 const request = require('request');
 const bodyParser = require('body-parser');
 const path = require('path');
+const fetch = require('node-fetch');
 require('dotenv').config();
 
 const app = express();
@@ -16,35 +17,32 @@ let url = process.env.MAILCHIMP_URL
 
 
 
-app.get('/count', (req,res) => {
-  const {count} = req.body;
-
-  const data = {
-    stats: {
-      member_count: count
-    }   
-  }
-  const JSONdata = JSON.stringify(data)
+app.get('/count', async (req,res) => {
 
   const options = {
-    url: url,
     method: 'GET',
     headers: {
       Authorization: key
-    },
-    body: JSONdata
+    }
   }
 
- 
-  request(options, (err,response,body) => {
-    if (err) {
-      res.json({error: err})
-    } else {
-        res.sendStatus(200);   
-    }
-    })
+  try {
+
+    const response = await fetch(url, options);
+    const data = await response.json();
+    res.json(data);
+
+  } catch {
+    console.log('error server side')
+  }
+  
+
+
+  
    
-})
+});
+
+
 
 
 
@@ -99,4 +97,4 @@ app.post('/subscribe', (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, console.log('server running'));
+app.listen(PORT);

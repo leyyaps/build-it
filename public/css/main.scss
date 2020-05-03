@@ -1,7 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Squada+One&display=swap');
 
+
+html,body {
+  width: 100%;
+  height: 100%;
+  margin:0px;
+  padding: 0px;
+
+}
+
 body {
-  margin: 0;
+
   font-family: 'Open Sans';
   height: 100vh;
   background: #0B0904;
@@ -15,7 +24,7 @@ body {
 
 .hero {
     /* Sizing */
-    width: 100vw;
+    width: 100%;
     height: 100vh;
 
     /* Flexbox stuff */
@@ -26,7 +35,7 @@ body {
     text-align: center;
 
     h1 {
-      font-size: 5em;
+      font-size: 4em;
  
       font-family: 'Squada One';
     }
@@ -35,7 +44,7 @@ body {
    background-size: cover;
    background-position: center center;
    background-repeat: no-repeat;
-   background-attachment: fixed;
+   background-attachment: scroll;
 }
 
 .content {
@@ -64,6 +73,9 @@ h4 {
 ul.list-unstyled {
   list-style: none;
   padding: 0;
+}
+.bold {
+  font-weight: 700;
 }
 
 .text-left {
@@ -132,10 +144,15 @@ input::placeholder {
  color: #fff;
 }
 
+
+
+
 .button {
-  width: 40% !important;
-  height: 4em;
+  width: 60% !important;
+  height: 3em;
   cursor: pointer;
+  border-radius: 5px !important;
+  background: #0B0904 !important;
  }
 
 #error {
@@ -190,21 +207,59 @@ input::placeholder {
 
 .hide-sm {
   display: none;
+
 }
 
+.brand {
+  width: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: .5em;
+}
+
+small {
+  color: rgba(255, 255, 255, 0.7);
+  a.link {
+    text-decoration:none;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
 
 @media only screen and (min-width: 768px) {
-  
+  .hero {
+    h1 {
+    font-size: 5em;
+   }
+   }
+   .brand {
+    width: 120px;
+   }
 }
 
 @media only screen and (min-width: 1024px) {
   .hide-sm {
     display: block;
   }
+
+  .hero {
+    h1 {
+    font-size: 6em;
+   }
+   }
+   .brand {
+    width: 150px;
+   }
 }
 
 
 @media only screen and (min-width: 1600px) {
- 
+ .hero {
+   h1 {
+   font-size: 7em;
+  }
+  }
+
   
 }
